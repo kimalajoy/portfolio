@@ -22,21 +22,23 @@ const Hero = () => {
             When I'm not coding, you'll find me knitting, building combat robots, or baking fresh bread!
           </p>
           <div className="mb-10 flex flex-wrap justify-center gap-3">
-            <span className="bg-coral text-white px-4 py-2 rounded-full font-semibold bounce-hover shadow-lg">Front End Engineer</span>
-            <span className="bg-mint text-white px-4 py-2 rounded-full font-semibold bounce-hover shadow-lg">Yarn Whisperer</span>
-            <span className="bg-rose text-white px-4 py-2 rounded-full font-semibold bounce-hover shadow-lg">Combat Robotics</span>
-            <span className="bg-sage text-white px-4 py-2 rounded-full font-semibold bounce-hover shadow-lg">Bread Baker</span>
+            <button className="bg-coral text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Front End Engineer</button>
+            <button className="bg-mint text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Yarn Whisperer</button>
+            <button className="bg-rose text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Combat Robotics</button>
+            <button className="bg-sage text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Bread Baker</button>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-coral text-white px-8 py-3 rounded-lg hover:bg-coral-light transition-colors font-semibold bounce-hover shadow-lg"
+              className="bg-coral text-black py-3 rounded-lg hover:bg-coral-light transition-colors font-semibold bounce-hover shadow-lg"
+              style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
             >
               View My Creations ✨
             </button>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-mint text-white px-8 py-3 rounded-lg hover:bg-mint-light transition-colors font-semibold bounce-hover shadow-lg"
+              className="bg-mint text-black py-3 rounded-lg hover:bg-mint-light transition-colors font-semibold bounce-hover shadow-lg"
+              style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
             >
               Let's Connect! 🌈
             </button>

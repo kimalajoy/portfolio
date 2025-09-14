@@ -15,10 +15,11 @@ This is a full-stack portfolio website built for a mid-level software developer.
 - Responsive design with mobile-first approach
 
 **Backend:**
-- Node.js with Express
-- TypeScript
-- CORS enabled for frontend communication
-- RESTful API endpoints
+- PocketBase (open-source backend in 1 file)
+- SQLite database with real-time subscriptions
+- Built-in authentication and file storage
+- Admin dashboard at http://127.0.0.1:8090/_/
+- RESTful API endpoints with JavaScript SDK
 
 ## Architecture
 
@@ -27,52 +28,60 @@ portfolio/
 ├── frontend/          # React TypeScript frontend
 │   ├── src/
 │   │   ├── components/    # React components
-│   │   ├── types/         # TypeScript type definitions
 │   │   └── ...
-│   ├── tailwind.config.js # Tailwind CSS configuration
-│   └── package.json
-├── backend/           # Node.js Express backend
-│   ├── src/
-│   │   └── index.ts       # Main server file
-│   ├── tsconfig.json      # TypeScript configuration
-│   └── package.json
+│   ├── package.json
+│   └── ...
+├── pocketbase/        # PocketBase backend
+│   ├── pocketbase.exe     # PocketBase executable
+│   ├── pb_data/           # Database and uploads (auto-created)
+│   └── setup.js           # Collection setup script
 └── package.json       # Root package.json with scripts
 ```
 
 ## Development Commands
 
-**Start development servers (both frontend and backend):**
+**Start development servers:**
 ```bash
+# Terminal 1 - Start PocketBase backend
+cd pocketbase
+./pocketbase.exe serve --dev
+
+# Terminal 2 - Start frontend
+cd frontend
 npm run dev
 ```
 
-**Start individual servers:**
+**Individual commands:**
 ```bash
 npm run dev:frontend  # Frontend only (port 5173)
-npm run dev:backend   # Backend only (port 3001)
+cd pocketbase && ./pocketbase.exe serve --dev  # PocketBase (port 8090)
 ```
 
 **Build for production:**
 ```bash
-npm run build
+cd frontend && npm run build
 ```
 
-**Build individual parts:**
-```bash
-npm run build:frontend  # Build frontend only
-npm run build:backend   # Build backend only
-```
+**PocketBase admin interface:**
+- Visit http://127.0.0.1:8090/_/ to access admin dashboard
+- Create admin account on first visit
+- Manage collections, users, and data
 
-**Start production server:**
-```bash
-npm start  # Starts backend server (serves built frontend)
-```
+## PocketBase API
 
-## API Endpoints
-
-**Backend API (port 3001):**
+**PocketBase API (port 8090):**
+- `GET /api/collections` - List all collections
+- `POST /api/collections/contacts/records` - Create contact form submission
+- `GET /api/collections/contacts/records` - List contact records (admin only)
 - `GET /api/health` - Health check endpoint
-- `POST /api/contact` - Contact form submission
+
+**Collections:**
+- `contacts` - Contact form submissions with fields: name, email, message
+
+**Authentication:**
+- Admin panel: http://127.0.0.1:8090/_/
+- JavaScript SDK handles authentication automatically
+- Contact form is public (no auth required for creating records)
 
 ## Frontend Components
 
@@ -82,7 +91,7 @@ npm start  # Starts backend server (serves built frontend)
 - `About` - Personal information and statistics
 - `Skills` - Technical skills organized by category
 - `Projects` - Featured projects with links
-- `Contact` - Contact form with backend integration
+- `Contact` - Contact form with PocketBase integration
 - `Footer` - Social links and copyright
 
 ## Styling
@@ -103,10 +112,22 @@ The project uses Tailwind CSS with:
 4. Replace placeholder contact information
 5. Update social media links in `Contact.tsx` and `Footer.tsx`
 
-## Environment Variables
+## Setup Instructions
 
-**Backend (.env):**
-```
-PORT=3001
-NODE_ENV=development
-```
+**First-time PocketBase setup:**
+1. Navigate to the pocketbase directory
+2. Run `./pocketbase.exe serve --dev`
+3. Visit http://127.0.0.1:8090/_/ in your browser
+4. Create an admin account
+5. Create a "contacts" collection with fields:
+   - name (text, required)
+   - email (email, required)
+   - message (text, required)
+6. Set collection rules:
+   - Create rule: `""` (public - anyone can create)
+   - List/View/Update/Delete rules: `null` (admin only)
+
+**Environment:**
+- PocketBase runs on port 8090
+- Frontend runs on port 5173
+- No additional environment variables needed

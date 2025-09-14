@@ -42,11 +42,11 @@ const Skills = () => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Beginner': return 'bg-coral text-white';
-      case 'Intermediate': return 'bg-peach text-white';
-      case 'Advanced': return 'bg-mint text-white';
-      case 'Expert': return 'bg-rose text-white';
-      default: return 'bg-sage text-white';
+      case 'Beginner': return 'bg-coral text-black';
+      case 'Intermediate': return 'bg-peach text-black';
+      case 'Advanced': return 'bg-mint text-black';
+      case 'Expert': return 'bg-rose text-black';
+      default: return 'bg-sage text-black';
     }
   };
 

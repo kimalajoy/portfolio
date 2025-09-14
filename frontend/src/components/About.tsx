@@ -72,7 +72,7 @@ const About = () => {
             </div>
             <div className="text-center p-6 personality-card-accent">
               <div className="text-3xl font-bold text-dark-sage mb-2">∞</div>
-              <div className="text-gray-700 font-medium">Cups of Coffee</div>
+              <div className="text-gray-700 font-medium">Cups of Tea</div>
             </div>
           </div>
         </div>

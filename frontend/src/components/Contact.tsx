@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import PocketBase from 'pocketbase';
 
 interface ContactForm {
   name: string;
   email: string;
   message: string;
 }
+
+const pb = new PocketBase('http://127.0.0.1:8090');
 
 const Contact = () => {
   const [form, setForm] = useState<ContactForm>({
@@ -25,27 +28,28 @@ const Contact = () => {
     setStatus('loading');
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
+      // Create a record in the 'contacts' collection
+      const record = await pb.collection('contacts').create({
+        name: form.name,
+        email: form.email,
+        message: form.message,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus('success');
-        setResponseMessage(data.message);
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        setStatus('error');
-        setResponseMessage(data.error || 'Something went wrong');
-      }
-    } catch (error) {
+      setStatus('success');
+      setResponseMessage('Thank you for your message! I\'ll get back to you soon. ✨');
+      setForm({ name: '', email: '', message: '' });
+    } catch (error: any) {
       setStatus('error');
-      setResponseMessage('Failed to send message. Please try again.');
+      console.error('PocketBase error:', error);
+
+      // Handle specific PocketBase errors
+      if (error.status === 404) {
+        setResponseMessage('Please wait while the backend is being set up. Try again in a moment!');
+      } else if (error.data?.message) {
+        setResponseMessage(error.data.message);
+      } else {
+        setResponseMessage('Failed to send message. Please try again or contact me directly at kimalajoy@gmail.com');
+      }
     }
   };
 
@@ -171,9 +175,9 @@ const Contact = () => {
                   disabled={status === 'loading'}
                   className={`w-full py-3 px-6 rounded-lg font-medium transition-colors bounce-hover ${
                     status === 'loading'
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-coral hover:bg-coral-light focus:ring-2 focus:ring-coral focus:ring-offset-2'
-                  } text-white`}
+                      ? 'bg-gray-400 cursor-not-allowed text-white'
+                      : 'bg-coral hover:bg-coral-light focus:ring-2 focus:ring-coral focus:ring-offset-2 text-black'
+                  }`}
                 >
                   {status === 'loading' ? 'Sending...' : 'Send Message'}
                 </button>

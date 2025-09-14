@@ -567,19 +567,19 @@ body {
 
 /* WCAG Compliant Color Palette - AA Level (4.5:1 contrast ratio) */
 .bg-coral {
-  background-color: #d63384; /* Darker coral for better contrast */
+  background-color: #ffd6e0ff; /* Mimi pink */
 }
 
 .bg-coral-light {
-  background-color: #e55592;
+  background-color: #ffe2eaff;
 }
 
 .bg-mint {
-  background-color: #20c997; /* Darker mint for better contrast */
+  background-color: #90f1efff; /* Ice blue */
 }
 
 .bg-mint-light {
-  background-color: #40d3a5;
+  background-color: #a8f4f2ff;
 }
 
 .bg-lavender {
@@ -587,15 +587,15 @@ body {
 }
 
 .bg-peach {
-  background-color: #fd7e14; /* Darker peach for better contrast */
+  background-color: #ffef9fff; /* Flax */
 }
 
 .bg-rose {
-  background-color: #e91e63; /* Darker rose for better contrast */
+  background-color: #c1fba4ff; /* Light green */
 }
 
 .bg-sage {
-  background-color: #198754; /* Darker sage for better contrast */
+  background-color: #7bf1a8ff; /* Light green 2 */
 }
 
 .bg-sunset {
@@ -633,8 +633,7 @@ body {
 /* Knitting pattern backgrounds */
 .knit-pattern {
   background-image:
-    radial-gradient(circle at 25% 25%, #ff8fab 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, #4ecdc4 2px, transparent 2px);
+    radial-gradient(circle at 25% 25%, #ff8fab66 2px, transparent 2px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
 }
@@ -812,7 +811,7 @@ body {
 }
 
 .coffee-icon::before {
-  content: "☕";
+  content: "🍵";
 }
 
 /* Fun skill badges */

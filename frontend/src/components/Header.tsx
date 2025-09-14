@@ -14,38 +14,38 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           <div className="text-xl font-bold text-gray-800">
-            Your Name
+            Kimala Cochran
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-3">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="bg-coral text-black px-6 py-2 rounded-full hover:bg-coral-light transition-colors font-semibold bounce-hover shadow-md"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="bg-mint text-black px-6 py-2 rounded-full hover:bg-mint-light transition-colors font-semibold bounce-hover shadow-md"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('skills')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="bg-rose text-black px-6 py-2 rounded-full hover:bg-rose-light transition-colors font-semibold bounce-hover shadow-md"
             >
               Skills
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="bg-sage text-black px-6 py-2 rounded-full hover:bg-sage-light transition-colors font-semibold bounce-hover shadow-md"
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="bg-peach text-black px-6 py-2 rounded-full hover:bg-peach-light transition-colors font-semibold bounce-hover shadow-md"
             >
               Contact
             </button>
@@ -65,34 +65,34 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection('home')}
-                className="text-gray-600 hover:text-blue-600 transition-colors py-2"
+                className="bg-coral text-black px-6 py-3 rounded-full hover:bg-coral-light transition-colors font-semibold bounce-hover shadow-md"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-gray-600 hover:text-blue-600 transition-colors py-2"
+                className="bg-mint text-black px-6 py-3 rounded-full hover:bg-mint-light transition-colors font-semibold bounce-hover shadow-md"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection('skills')}
-                className="text-gray-600 hover:text-blue-600 transition-colors py-2"
+                className="bg-rose text-black px-6 py-3 rounded-full hover:bg-rose-light transition-colors font-semibold bounce-hover shadow-md"
               >
                 Skills
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
-                className="text-gray-600 hover:text-blue-600 transition-colors py-2"
+                className="bg-sage text-black px-6 py-3 rounded-full hover:bg-sage-light transition-colors font-semibold bounce-hover shadow-md"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-gray-600 hover:text-blue-600 transition-colors py-2"
+                className="bg-peach text-black px-6 py-3 rounded-full hover:bg-peach-light transition-colors font-semibold bounce-hover shadow-md"
               >
                 Contact
               </button>

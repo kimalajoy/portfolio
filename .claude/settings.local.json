@@ -6,7 +6,10 @@
       "Bash(npm install express cors dotenv)",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "WebSearch",
+      "Bash(unzip:*)",
+      "Bash(./pocketbase.exe serve:*)"
     ],
     "deny": [],
     "ask": []
