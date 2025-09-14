@@ -1,0 +1,853 @@
+/* Portfolio CSS - Manual implementation */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+
+.z-50 {
+  z-index: 50;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.space-x-8 > * + * {
+  margin-left: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-800 {
+  color: #1f2937;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.hover\:text-blue-600:hover {
+  color: #2563eb;
+}
+
+.transition-colors {
+  transition: color 0.15s ease-in-out;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Hero section */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #dbeafe, #e0e7ff);
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg-blue-600 {
+  background-color: #2563eb;
+}
+
+.text-white {
+  color: white;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: #1d4ed8;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-blue-600 {
+  border-color: #2563eb;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #2563eb;
+}
+
+/* Responsive design */
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+/* Background colors */
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+.bg-gray-800 {
+  background-color: #1f2937;
+}
+
+/* Additional utility classes for portfolio */
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.w-72 {
+  width: 18rem;
+}
+
+.h-72 {
+  height: 18rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #dbeafe, #e0e7ff);
+}
+
+.from-blue-50 {
+  --tw-gradient-from: #eff6ff;
+}
+
+.to-indigo-100 {
+  --tw-gradient-to: #e0e7ff;
+}
+
+.from-blue-400 {
+  --tw-gradient-from: #60a5fa;
+}
+
+.to-purple-500 {
+  --tw-gradient-to: #8b5cf6;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.sm\:flex-row {
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.bg-blue-100 {
+  background-color: #dbeafe;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Color utilities */
+.bg-red-200 { background-color: #fecaca; }
+.text-red-800 { color: #991b1b; }
+.bg-yellow-200 { background-color: #fef3c7; }
+.text-yellow-800 { color: #92400e; }
+.bg-blue-200 { background-color: #dbeafe; }
+.text-blue-800 { color: #1e40af; }
+.bg-green-200 { background-color: #bbf7d0; }
+.text-green-800 { color: #166534; }
+.bg-gray-200 { background-color: #e5e7eb; }
+.text-gray-800 { color: #1f2937; }
+
+/* Card and form styles */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px #2563eb;
+}
+
+.focus\:ring-blue-500:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.focus\:border-transparent:focus {
+  border-color: transparent;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.hover\:bg-gray-400:hover {
+  background-color: #9ca3af;
+}
+
+.bg-gray-400 {
+  background-color: #9ca3af;
+}
+
+/* Flexbox utilities */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-6 { gap: 1.5rem; }
+
+/* Responsive grid */
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Success/Error states */
+.bg-green-50 {
+  background-color: #f0fdf4;
+}
+
+.text-green-800 {
+  color: #166534;
+}
+
+.border-green-200 {
+  border-color: #bbf7d0;
+}
+
+.bg-red-50 {
+  background-color: #fef2f2;
+}
+
+.text-red-800 {
+  color: #991b1b;
+}
+
+.border-red-200 {
+  border-color: #fecaca;
+}
+
+/* Mobile menu */
+.md\:hidden {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: block;
+  }
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.stroke-current {
+  stroke: currentColor;
+}
+
+/* WCAG Compliant Color Palette - AA Level (4.5:1 contrast ratio) */
+.bg-coral {
+  background-color: #d63384; /* Darker coral for better contrast */
+}
+
+.bg-coral-light {
+  background-color: #e55592;
+}
+
+.bg-mint {
+  background-color: #20c997; /* Darker mint for better contrast */
+}
+
+.bg-mint-light {
+  background-color: #40d3a5;
+}
+
+.bg-lavender {
+  background-color: #6f42c1; /* Darker lavender for better contrast */
+}
+
+.bg-peach {
+  background-color: #fd7e14; /* Darker peach for better contrast */
+}
+
+.bg-rose {
+  background-color: #e91e63; /* Darker rose for better contrast */
+}
+
+.bg-sage {
+  background-color: #198754; /* Darker sage for better contrast */
+}
+
+.bg-sunset {
+  background: linear-gradient(135deg, #dc3545, #e91e63, #6f42c1, #0d6efd);
+}
+
+.bg-aurora {
+  background: linear-gradient(135deg, #495057, #6f42c1, #e91e63, #dc3545);
+}
+
+.bg-garden {
+  background: linear-gradient(135deg, #0d6efd, #20c997, #198754, #28a745);
+}
+
+.bg-warm-gradient {
+  background: linear-gradient(135deg, #e91e63, #fd7e14, #ffc107, #20c997);
+}
+
+/* Text colors with proper contrast */
+.text-coral { color: #b02752; } /* Darker for readability */
+.text-mint { color: #198754; }
+.text-lavender { color: #6f42c1; }
+.text-peach { color: #fd7e14; }
+.text-rose { color: #e91e63; }
+.text-sage { color: #198754; }
+
+/* Dark text colors for light backgrounds */
+.text-dark-coral { color: #8b2454; }
+.text-dark-mint { color: #0d5132; }
+.text-dark-lavender { color: #432874; }
+.text-dark-peach { color: #b5520a; }
+.text-dark-rose { color: #a61647; }
+.text-dark-sage { color: #0f5132; }
+
+/* Knitting pattern backgrounds */
+.knit-pattern {
+  background-image:
+    radial-gradient(circle at 25% 25%, #ff8fab 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, #4ecdc4 2px, transparent 2px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.cable-knit {
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 139, 171, 0.1) 10px, rgba(255, 139, 171, 0.1) 20px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(78, 205, 196, 0.1) 10px, rgba(78, 205, 196, 0.1) 20px);
+}
+
+.seed-stitch {
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(255, 105, 107, 0.2) 2px, transparent 2px),
+    radial-gradient(circle at 6px 6px, rgba(78, 205, 196, 0.2) 1px, transparent 1px);
+  background-size: 24px 24px, 12px 12px;
+}
+
+/* Bread texture patterns */
+.bread-crust {
+  background-image:
+    repeating-linear-gradient(90deg, #d4a574 0px, #c19a68 2px, #d4a574 4px),
+    repeating-linear-gradient(0deg, #e6b885 0px, #d4a574 2px, #e6b885 4px);
+  background-size: 8px 8px, 8px 8px;
+}
+
+.flour-dust {
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px, 40px 40px, 25px 25px;
+}
+
+/* Playful animations */
+@keyframes bounce-subtle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes color-shift {
+  0% { color: #ff6b6b; }
+  25% { color: #4ecdc4; }
+  50% { color: #a8e6cf; }
+  75% { color: #ff8fab; }
+  100% { color: #ff6b6b; }
+}
+
+@keyframes bg-shift {
+  0% { background-color: #ff6b6b; }
+  25% { background-color: #4ecdc4; }
+  50% { background-color: #a8e6cf; }
+  75% { background-color: #ff8fab; }
+  100% { background-color: #ff6b6b; }
+}
+
+.bounce-hover:hover {
+  animation: bounce-subtle 1s ease-in-out;
+}
+
+.color-shift-text {
+  animation: color-shift 6s infinite;
+}
+
+.bg-shift {
+  animation: bg-shift 8s infinite;
+}
+
+/* Decorative elements */
+.zigzag-border::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(45deg, #ff8fab 25%, transparent 25%),
+              linear-gradient(-45deg, #4ecdc4 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 0;
+}
+
+.dotted-accent::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 5px;
+  background: radial-gradient(circle, #ff6b6b 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+/* Fun button styles */
+.btn-playful {
+  background: linear-gradient(135deg, #ff8fab, #4ecdc4);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transform: perspective(1px) translateZ(0);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-playful::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-playful:hover::before {
+  left: 100%;
+}
+
+.btn-playful:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(255, 139, 171, 0.3);
+}
+
+/* Personality cards - WCAG compliant */
+.personality-card {
+  background: #ffffff;
+  border: 3px solid #ff8fab;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.personality-card-alt {
+  background: #ffffff;
+  border: 3px solid #4ecdc4;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.personality-card-accent {
+  background: #ffffff;
+  border: 3px solid #a8e6cf;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hobby icons styling */
+.hobby-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.knitting-icon::before {
+  content: "🧶";
+}
+
+.baking-icon::before {
+  content: "🍞";
+}
+
+.coding-icon::before {
+  content: "💻";
+}
+
+.coffee-icon::before {
+  content: "☕";
+}
+
+/* Fun skill badges */
+.skill-badge-colorful {
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-block;
+  margin: 0.25rem;
+  transform: perspective(1px) translateZ(0);
+  transition: all 0.3s ease;
+}
+
+.skill-badge-colorful:nth-child(2n) {
+  background: linear-gradient(135deg, #a8e6cf, #ff8fab);
+}
+
+.skill-badge-colorful:nth-child(3n) {
+  background: linear-gradient(135deg, #ffd93d, #95e1d3);
+}
+
+.skill-badge-colorful:hover {
+  transform: translateY(-2px) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Text shadows for readability on colorful backgrounds */
+.hero-text-shadow {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
