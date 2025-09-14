@@ -5,6 +5,7 @@ interface ContactForm {
   name: string;
   email: string;
   message: string;
+  website: string; // Honeypot field
 }
 
 const pb = new PocketBase('http://127.0.0.1:8090');
@@ -14,9 +15,11 @@ const Contact = () => {
     name: '',
     email: '',
     message: '',
+    website: '', // Honeypot field - should always be empty
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [responseMessage, setResponseMessage] = useState('');
+  const [lastSubmission, setLastSubmission] = useState<number | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,6 +28,35 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Rate limiting check (30 seconds between submissions)
+    const RATE_LIMIT_MS = 30000;
+    if (lastSubmission && Date.now() - lastSubmission < RATE_LIMIT_MS) {
+      setStatus('error');
+      setResponseMessage('Please wait 30 seconds before sending another message.');
+      return;
+    }
+
+    // Honeypot check - if website field is filled, it's likely a bot
+    if (form.website.trim() !== '') {
+      console.log('Honeypot triggered - likely spam');
+      // Silent rejection - don't show error to avoid teaching bots
+      return;
+    }
+
+    // Basic content validation
+    if (form.message.length < 10) {
+      setStatus('error');
+      setResponseMessage('Please write a message with at least 10 characters.');
+      return;
+    }
+
+    if (form.message.length > 2000) {
+      setStatus('error');
+      setResponseMessage('Message is too long. Please keep it under 2000 characters.');
+      return;
+    }
+
     setStatus('loading');
 
     try {
@@ -37,7 +69,8 @@ const Contact = () => {
 
       setStatus('success');
       setResponseMessage('Thank you for your message! I\'ll get back to you soon. ✨');
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', message: '', website: '' });
+      setLastSubmission(Date.now());
     } catch (error: any) {
       setStatus('error');
       console.error('PocketBase error:', error);
@@ -122,6 +155,24 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="personality-card p-8 rounded-lg shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users, but bots will fill it */}
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={handleChange}
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    width: '1px',
+                    height: '1px',
+                    opacity: 0,
+                  }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name
