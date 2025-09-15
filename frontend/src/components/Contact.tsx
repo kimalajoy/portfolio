@@ -61,7 +61,7 @@ const Contact = () => {
 
     try {
       // Create a record in the 'contacts' collection
-      const record = await pb.collection('contacts').create({
+      await pb.collection('contacts').create({
         name: form.name,
         email: form.email,
         message: form.message,

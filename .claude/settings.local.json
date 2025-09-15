@@ -9,7 +9,8 @@
       "Bash(npm uninstall:*)",
       "WebSearch",
       "Bash(unzip:*)",
-      "Bash(./pocketbase.exe serve:*)"
+      "Bash(./pocketbase.exe serve:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

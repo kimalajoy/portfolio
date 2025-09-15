@@ -22,10 +22,15 @@ const Hero = () => {
             When I'm not coding, you'll find me knitting, building combat robots, or baking fresh bread!
           </p>
           <div className="mb-10 flex flex-wrap justify-center gap-3">
-            <button className="bg-coral text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Front End Engineer</button>
-            <button className="bg-mint text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Yarn Whisperer</button>
-            <button className="bg-rose text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Combat Robotics</button>
-            <button className="bg-sage text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg">Bread Baker</button>
+            <button className="bg-coral text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Front End Engineer</button>
+            <button
+              onClick={() => window.open('https://www.ravelry.com/projects/kimalajoy', '_blank')}
+              className="bg-mint text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black"
+            >
+              Yarn Whisperer
+            </button>
+            <button className="bg-rose text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Combat Robotics</button>
+            <button className="bg-sage text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Bread Baker</button>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
