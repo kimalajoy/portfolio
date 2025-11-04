@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="16" fill="#90f1efff"/>
+
+  <!-- Geometric pattern -->
+  <circle cx="16" cy="16" r="10" fill="#ffd6e0ff"/>
+  <circle cx="16" cy="16" r="6" fill="#c1fba4ff"/>
+  <circle cx="16" cy="16" r="3" fill="#ffef9fff"/>
+
+  <!-- Small accent dots -->
+  <circle cx="8" cy="8" r="1.5" fill="#7bf1a8ff"/>
+  <circle cx="24" cy="8" r="1.5" fill="#7bf1a8ff"/>
+  <circle cx="8" cy="24" r="1.5" fill="#7bf1a8ff"/>
+  <circle cx="24" cy="24" r="1.5" fill="#7bf1a8ff"/>
+</svg>

@@ -29,7 +29,7 @@ const Hero = () => {
             >
               Yarn Whisperer
             </button>
-            <button className="bg-rose text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Combat Robotics</button>
+            <button className="bg-peach text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Combat Robotics</button>
             <button className="bg-sage text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Bread Baker</button>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -42,7 +42,7 @@ const Hero = () => {
             </button>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-mint text-black py-3 rounded-lg hover:bg-mint-light transition-colors font-semibold bounce-hover shadow-lg"
+              className="bg-peach text-black py-3 rounded-lg hover:bg-peach-light transition-colors font-semibold bounce-hover shadow-lg"
               style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
             >
               Let's Connect! 🌈

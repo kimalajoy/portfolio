@@ -57,20 +57,27 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-sunset bread-crust relative">
-      {/* Light overlay for text readability */}
-      <div className="absolute inset-0 bg-white bg-opacity-90"></div>
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">
           Creative Projects & Apps
         </h2>
-        <p className="text-center text-gray-700 mb-12 text-lg">
+        <p className="text-center text-gray-700 mb-8 text-lg">
           Where coding meets crafting - functional apps with personality! ✨
         </p>
+
+        <div className="text-center mb-12">
+          <a
+            href="/movies"
+            className="inline-block bg-rose text-black px-6 py-3 rounded-lg font-semibold bounce-hover shadow-lg border-2 border-black"
+          >
+            🎬 Did They Age Well? - Movie Database
+          </a>
+        </div>
 
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="personality-card rounded-lg shadow-lg hover:shadow-xl transition-all bounce-hover">
+              <div key={project.id} className="personality-card rounded-lg shadow-lg hover:shadow-xl transition-all">
                 <div className="p-6">
                   <div className="text-center mb-4">
                     <span className="text-4xl mb-2 block">{getProjectIcon(project.id)}</span>

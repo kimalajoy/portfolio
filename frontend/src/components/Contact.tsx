@@ -88,8 +88,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-aurora knit-pattern relative">
-      {/* Light overlay for text readability */}
-      <div className="absolute inset-0 bg-white bg-opacity-90"></div>
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">
           Let's Create Together!

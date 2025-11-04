@@ -7,13 +7,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-300">
-              © {currentYear} Your Name. Built with React, TypeScript, and Tailwind CSS.
+              © {currentYear} Built with React, TypeScript, and Tailwind CSS.
             </p>
           </div>
 
           <div className="flex space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/kimalajoy"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -25,7 +25,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/kimala-cochran"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
