@@ -23,7 +23,7 @@ const Footer = () => {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   aria-label={label}
-                  className="social-icon font-body text-sm text-slate-500 hover:text-[#00635c] underline underline-offset-4 transition-all opacity-80 hover:opacity-100"
+                  className="social-icon font-body text-sm text-slate-500 hover:text-on-primary-fixed-variant underline underline-offset-4 transition-all opacity-80 hover:opacity-100"
                 >
                   {text}
                 </a>

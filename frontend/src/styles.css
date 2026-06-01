@@ -349,13 +349,6 @@ body,
   animation: spring-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* ─── Stat value text colours ─── */
-.text-dark-coral    { color: #68133e; }
-.text-dark-mint     { color: #003d38; }
-.text-dark-lavender { color: #4d2b85; }
-.text-dark-peach    { color: #9a3412; }
-.text-dark-rose     { color: #68133e; }
-.text-dark-sage     { color: #003d38; }
 
 /* ─────────────────────────────────────────
    ANIMATIONS

@@ -8,7 +8,7 @@ interface ContactForm {
   website: string;
 }
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL);
 
 const Contact = () => {
   const [form, setForm] = useState<ContactForm>({ name: '', email: '', message: '', website: '' });
@@ -134,7 +134,7 @@ const Contact = () => {
                   <div className={`w-11 h-11 ${bg} rounded-full flex items-center justify-center flex-shrink-0 hover-lift transition-all duration-300`}>
                     {icon}
                   </div>
-                  <h4 className="font-headline font-bold text-sm text-on-surface group-hover/link:text-[#00635c] transition-colors">
+                  <h4 className="font-headline font-bold text-sm text-on-surface group-hover/link:text-on-primary-fixed-variant transition-colors">
                     {label}
                   </h4>
                 </a>

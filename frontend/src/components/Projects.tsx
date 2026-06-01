@@ -91,7 +91,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View code for ${project.title} on GitHub (opens in new tab)`}
-                      className="font-headline font-bold text-sm text-[#00635c] flex items-center gap-1.5 hover:gap-2.5 transition-all duration-300"
+                      className="font-headline font-bold text-sm text-on-primary-fixed-variant flex items-center gap-1.5 hover:gap-2.5 transition-all duration-300"
                     >
                       View Code
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -105,7 +105,7 @@ const Projects = () => {
                       target={project.liveUrl.startsWith('/') ? undefined : '_blank'}
                       rel={project.liveUrl.startsWith('/') ? undefined : 'noopener noreferrer'}
                       aria-label={`View live demo of ${project.title}${project.liveUrl.startsWith('/') ? '' : ' (opens in new tab)'}`}
-                      className="font-headline font-bold text-sm text-on-surface-variant flex items-center gap-1.5 hover:text-[#00635c] transition-colors"
+                      className="font-headline font-bold text-sm text-on-surface-variant flex items-center gap-1.5 hover:text-on-primary-fixed-variant transition-colors"
                     >
                       Live Demo
                     </a>

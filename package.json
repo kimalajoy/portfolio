@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "baseline-browser-mapping": "^2.10.23",
+    "baseline-browser-mapping": "^2.10.33",
     "concurrently": "^9.1.0"
   }
 }
