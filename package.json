@@ -3,20 +3,24 @@
   "version": "1.0.0",
   "description": "Full-stack portfolio website with React/TypeScript frontend and Node.js backend",
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev": "npm run dev:frontend",
     "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && npm run dev",
-    "build": "npm run build:frontend && npm run build:backend",
+    "build": "npm run build:frontend",
     "build:frontend": "cd frontend && npm run build",
-    "build:backend": "cd backend && npm run build",
-    "start": "npm run start:backend",
-    "start:backend": "cd backend && npm start",
+    "start": "cd pocketbase && ./pocketbase.exe serve",
     "preview": "cd frontend && npm run preview"
   },
-  "keywords": ["portfolio", "react", "typescript", "node.js", "full-stack"],
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "node.js",
+    "full-stack"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "baseline-browser-mapping": "^2.10.23",
     "concurrently": "^9.1.0"
   }
 }

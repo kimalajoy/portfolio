@@ -1,52 +1,68 @@
+const scrollTo = (id: string) =>
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-aurora knit-pattern relative">
-      <div className="container mx-auto px-6 text-center relative z-10">
+    <section id="home" className="pattern-stars min-h-screen flex items-center justify-center">
+      <div className="container mx-auto px-8 text-center relative z-10 pt-32 pb-20">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-6">
-            <span className="hobby-icon knitting-icon bounce-hover"></span>
-            <span className="hobby-icon coding-icon bounce-hover"></span>
-            <span className="hobby-icon baking-icon bounce-hover"></span>
-            <span className="hobby-icon coffee-icon bounce-hover"></span>
+
+          {/* Hobby icons — decorative, hidden from assistive tech */}
+          <div className="mb-8 flex justify-center gap-5" aria-hidden="true">
+            <span className="hobby-icon knitting-icon animate-float" style={{ animationDelay: '0s' }}></span>
+            <span className="hobby-icon coding-icon animate-float"   style={{ animationDelay: '0.4s' }}></span>
+            <span className="hobby-icon baking-icon animate-float"   style={{ animationDelay: '0.8s' }}></span>
+            <span className="hobby-icon coffee-icon animate-float"   style={{ animationDelay: '1.2s' }}></span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 hero-text-shadow">
+
+          <h1 className="font-headline font-extrabold text-5xl md:text-7xl leading-[1.1] text-on-surface tracking-tight mb-6 animate-fade-in-up">
             Hi, I'm{' '}
-            <span className="text-gray-800">Kimala Cochran</span>
+            <span className="heading-accent">Kimala Cochran</span>
           </h1>
-          <h2 className="text-xl md:text-2xl text-gray-800 mb-8 font-semibold hero-text-shadow">
-            Front End Engineer & Creative Problem Solver
+
+          <h2 className="font-headline font-bold text-xl md:text-2xl text-on-surface-variant mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            Front End Engineer &amp; Creative Problem Solver
           </h2>
-          <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
+
+          <p className="font-body text-lg text-on-surface-variant mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
             Engaged and collaborative software developer dedicated to finding efficient and creative solutions.
             Experienced in building accessible, responsive web experiences with modern technologies.
             When I'm not coding, you'll find me knitting, building combat robots, or baking fresh bread!
           </p>
-          <div className="mb-10 flex flex-wrap justify-center gap-3">
-            <button className="bg-coral text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Front End Engineer</button>
-            <button
-              onClick={() => window.open('https://www.ravelry.com/projects/kimalajoy', '_blank')}
-              className="bg-mint text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black"
+
+          {/* Identity tag pills */}
+          <div className="mb-10 flex flex-wrap justify-center gap-3 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <span className="btn-nav" aria-hidden="true">Front End Engineer</span>
+            <a
+              href="https://www.ravelry.com/projects/kimalajoy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-nav"
+              style={{ cursor: 'pointer' }}
+              aria-label="Yarn Whisperer — view Ravelry projects (opens in new tab)"
             >
               Yarn Whisperer
-            </button>
-            <button className="bg-peach text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Combat Robotics</button>
-            <button className="bg-sage text-black px-6 py-2 rounded-full font-semibold bounce-hover shadow-lg border-2 border-black">Bread Baker</button>
+            </a>
+            <span className="btn-nav" aria-hidden="true">Combat Robotics</span>
+            <span className="btn-nav" aria-hidden="true">Bread Baker</span>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-coral text-black py-3 rounded-lg hover:bg-coral-light transition-colors font-semibold bounce-hover shadow-lg"
-              style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-5 justify-center animate-fade-in-up" style={{ animationDelay: '0.25s' }}>
+            <a
+              href="#projects"
+              onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}
+              className="btn-primary text-lg px-10 py-5"
             >
-              View My Creations ✨
-            </button>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-peach text-black py-3 rounded-lg hover:bg-peach-light transition-colors font-semibold bounce-hover shadow-lg"
-              style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
+              View My Creations <span aria-hidden="true">✨</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}
+              className="btn-secondary text-lg px-10 py-5"
             >
-              Let's Connect! 🌈
-            </button>
+              Let's Connect! <span aria-hidden="true">🌈</span>
+            </a>
           </div>
         </div>
       </div>
