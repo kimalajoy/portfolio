@@ -8,7 +8,7 @@ interface ContactForm {
   website: string;
 }
 
-const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL);
+const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || '/');
 
 const Contact = () => {
   const [form, setForm] = useState<ContactForm>({ name: '', email: '', message: '', website: '' });
@@ -104,7 +104,7 @@ const Contact = () => {
     <section id="contact" className="pattern-stars-peach py-20">
       <div className="max-w-7xl mx-auto px-8">
 
-        <h2 className="font-headline font-extrabold text-5xl md:text-7xl tracking-tight text-on-surface mb-6">
+        <h2 className="font-headline font-extrabold text-4xl md:text-7xl tracking-tight text-on-surface mb-6">
           Let's <span className="heading-accent">Create</span> Together!
         </h2>
         <p className="font-body text-on-surface-variant text-lg mb-14 max-w-2xl">

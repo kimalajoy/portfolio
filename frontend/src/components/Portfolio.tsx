@@ -3,6 +3,7 @@ import Hero from './Hero'
 import About from './About'
 import Skills from './Skills'
 import Projects from './Projects'
+import AccessibilityLab from './AccessibilityLab'
 import Contact from './Contact'
 import Footer from './Footer'
 
@@ -21,6 +22,7 @@ function Portfolio() {
         <About />
         <Skills />
         <Projects />
+        <AccessibilityLab />
         <Contact />
       </main>
       <Footer />

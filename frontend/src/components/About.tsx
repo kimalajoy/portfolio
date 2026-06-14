@@ -10,7 +10,7 @@ const About = () => {
     <section id="about" className="pattern-x py-20">
       <div className="max-w-7xl mx-auto px-8">
 
-        <h2 className="font-headline font-extrabold text-5xl md:text-7xl tracking-tight text-on-surface mb-12">
+        <h2 className="font-headline font-extrabold text-4xl md:text-7xl tracking-tight text-on-surface mb-12">
           About <span className="heading-accent">Kimala</span> & Her Journey
         </h2>
 

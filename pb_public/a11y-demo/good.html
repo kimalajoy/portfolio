@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Page — Accessible</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Focus indicators: browser defaults restored — no outline:none */
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      /* Strong contrast: #1e3351 on #ffffff = 12.5:1 (well above WCAG AA) */
+      color: #1e3351;
+      padding: 2rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    header { margin-bottom: 2rem; }
+
+    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f1f33; }
+    h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #1e3351; }
+
+    p { margin-bottom: 1.25rem; line-height: 1.6; font-size: 0.95rem; }
+
+    form { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #1e3351;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    input[type="email"] {
+      padding: 0.6rem 0.85rem;
+      border: 2px solid #4a6fa5;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #1e3351;
+      width: 100%;
+    }
+
+    button[type="submit"] {
+      padding: 0.7rem 1.5rem;
+      background: #00635c;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    button[type="submit"]:hover { background: #004d47; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mountain Retreat Newsletter</h1>
+    <h2>Stay up to date with our latest escapes</h2>
+  </header>
+
+  <!-- Descriptive alt text -->
+  <img
+    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='180'%3E%3Crect width='640' height='180' fill='%23d1d5db'/%3E%3Cpath d='M0 120 L160 60 L320 100 L480 40 L640 90 L640 180 L0 180Z' fill='%239ca3af'/%3E%3Ccircle cx='540' cy='50' r='30' fill='%23fbbf24' opacity='0.6'/%3E%3C/svg%3E"
+    alt="Mountain landscape at sunset with layered peaks and a glowing sun"
+    width="640"
+    height="180"
+    style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:1.5rem;display:block;"
+  />
+
+  <p>
+    Discover hidden gems in the wilderness. From alpine meadows to coastal cliffs,
+    our curated getaways bring you closer to nature without sacrificing comfort.
+  </p>
+  <p>
+    Join thousands of travelers who have unplugged and recharged. Weekly tips,
+    destination guides, and exclusive offers delivered straight to your inbox.
+  </p>
+
+  <!-- Properly associated label + input -->
+  <form>
+    <div>
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+      />
+    </div>
+    <button type="submit">Subscribe</button>
+  </form>
+</body>
+</html>

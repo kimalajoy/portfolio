@@ -5,6 +5,7 @@ interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  badge?: string;
 }
 
 const Projects = () => {
@@ -27,7 +28,7 @@ const Projects = () => {
     {
       id: 3,
       title: 'Did They Age Well?',
-      description: 'A movie database app for rating how well films hold up over time. Browse, search, and submit your own verdicts on whether a classic deserves its reputation.',
+      description: 'A movie database app for rating how well films hold up over time. Browse, search, and submit your own verdicts on whether a classic deserves its reputation. 🚧 Work in progress.',
       technologies: ['React', 'TypeScript', 'PocketBase', 'CSS'],
       liveUrl: '/movies',
     },
@@ -38,9 +39,23 @@ const Projects = () => {
       technologies: ['Node.js', 'Claude AI', 'CLI', 'TypeScript'],
       githubUrl: 'https://github.com/kimalajoy/jobSearch',
     },
+    {
+      id: 5,
+      title: 'Accessibility Lab',
+      description: 'An interactive demo that runs real Lighthouse audits against three preset pages — broken, partially fixed, and fully accessible — showing how color contrast, alt text, and focus indicators affect scores.',
+      technologies: ['React', 'TypeScript', 'Lighthouse API', 'WCAG 2.1'],
+      liveUrl: '#accessibility-lab',
+    },
+    {
+      id: 6,
+      title: 'Local AI Lab',
+      description: 'Configured a fully offline LLM environment on Linux Mint using Ollama and Open WebUI via Docker. Ran Qwen 2.57B and 3.6B models locally. Wrangling Docker networking on Linux to get the stack talking to itself was half the adventure!',
+      technologies: ['Ollama', 'Open WebUI', 'Docker', 'Linux'],
+      badge: 'Local Setup',
+    },
   ];
 
-  const icons = ['🧩', '🗺️', '🎬', '🤖'];
+  const icons = ['🧩', '🗺️', '🎬', '🤖', '♿', '🧠'];
 
   /* Alternate dog-ear colours per card */
   const dogEarColors = [
@@ -48,13 +63,15 @@ const Projects = () => {
     'text-secondary',
     'text-tertiary',
     'text-primary',
+    'text-tertiary',
+    'text-secondary',
   ];
 
   return (
     <section id="projects" className="pattern-grid py-20">
       <div className="max-w-7xl mx-auto px-8">
 
-        <h2 className="font-headline font-extrabold text-5xl md:text-7xl tracking-tight text-on-surface mb-6">
+        <h2 className="font-headline font-extrabold text-4xl md:text-7xl tracking-tight text-on-surface mb-6">
           Creative <span className="heading-accent">Projects</span>
         </h2>
         <p className="font-body text-on-surface-variant text-lg mb-8 max-w-2xl">
@@ -84,7 +101,7 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <div className="flex gap-4 mt-auto">
+                <div className="flex gap-4 mt-auto flex-wrap items-center">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
@@ -102,13 +119,19 @@ const Projects = () => {
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
-                      target={project.liveUrl.startsWith('/') ? undefined : '_blank'}
-                      rel={project.liveUrl.startsWith('/') ? undefined : 'noopener noreferrer'}
-                      aria-label={`View live demo of ${project.title}${project.liveUrl.startsWith('/') ? '' : ' (opens in new tab)'}`}
+                      target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
+                      rel={project.liveUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      aria-label={`View live demo of ${project.title}${project.liveUrl.startsWith('http') ? ' (opens in new tab)' : ''}`}
                       className="font-headline font-bold text-sm text-on-surface-variant flex items-center gap-1.5 hover:text-on-primary-fixed-variant transition-colors"
                     >
                       Live Demo
                     </a>
+                  )}
+                  {project.badge && !project.githubUrl && !project.liveUrl && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label text-xs font-bold">
+                      <span aria-hidden="true">🔒</span>
+                      {project.badge}
+                    </span>
                   )}
                 </div>
               </div>

@@ -301,20 +301,19 @@ body,
 .coffee-icon::before   { content: "🍵"; }
 
 /* ─── Section heading underline ─── */
+/* Background gradient paints the highlight inside the text box — no pseudo-element
+   overflow, works correctly whether the word wraps or not. */
 .heading-accent {
   color: #00635c;
-  position: relative;
-}
-
-.heading-accent::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 3px;
-  border-radius: 9999px;
-  background-color: rgba(152, 235, 207, 0.5);
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(152, 235, 207, 0.55) 60%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* Slight padding so the highlight doesn't clip at the very edge */
+  padding-inline: 0.05em;
 }
 
 /* ─── Form inputs ─── */
@@ -353,6 +352,32 @@ body,
 /* ─────────────────────────────────────────
    ANIMATIONS
    ───────────────────────────────────────── */
+/* ─── Scroll hint chevron ─── */
+.scroll-hint {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(152, 235, 207, 0.5);
+  color: #00635c;
+  align-items: center;
+  justify-content: center;
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-hint:hover {
+  background: rgba(255, 255, 255, 0.95);
+  animation-play-state: paused;
+  transform: translateY(4px);
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }

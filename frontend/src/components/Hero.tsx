@@ -3,7 +3,7 @@ const scrollTo = (id: string) =>
 
 const Hero = () => {
   return (
-    <section id="home" className="pattern-stars min-h-screen flex items-center justify-center">
+    <section id="home" className="pattern-stars min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-8 text-center relative z-10 pt-32 pb-20">
         <div className="max-w-4xl mx-auto">
 
@@ -15,7 +15,7 @@ const Hero = () => {
             <span className="hobby-icon coffee-icon animate-float"   style={{ animationDelay: '1.2s' }}></span>
           </div>
 
-          <h1 className="font-headline font-extrabold text-5xl md:text-7xl leading-[1.1] text-on-surface tracking-tight mb-6 animate-fade-in-up">
+          <h1 className="font-headline font-extrabold text-4xl md:text-7xl leading-[1.1] text-on-surface tracking-tight mb-6 animate-fade-in-up">
             Hi, I'm{' '}
             <span className="heading-accent">Kimala Cochran</span>
           </h1>
@@ -66,6 +66,18 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Scroll hint — desktop only, hidden on mobile where thumb-scroll is obvious */}
+      <a
+        href="#about"
+        onClick={(e) => { e.preventDefault(); scrollTo('about'); }}
+        aria-label="Scroll down to About section"
+        className="scroll-hint hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </a>
     </section>
   );
 };

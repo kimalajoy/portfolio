@@ -50,9 +50,22 @@ const Skills = () => {
     </div>
   );
 
-  const creativePills = [
-    'Cable Knitting', 'Sourdough Baking', 'Color Theory', 'Pattern Design', 'Combat Robotics', 'Design Handoff', 'Brand Systems',
+  const creativeHobbies = [
+    { label: 'Knitting',  emoji: '🧶' },
+    { label: 'Combat Robotics', emoji: '🤖' },
+    { label: 'Sourdough Baking', emoji: '🍞' },
+    { label: 'Fermentation', emoji: '🫙' },
   ];
+
+  const creativePro = [
+    { label: 'Color Theory',    emoji: '🎨' },
+    { label: 'Pattern Design',  emoji: '🪡' },
+    { label: 'Design Handoff',  emoji: '🤝' },
+    { label: 'Brand Systems',   emoji: '💡' },
+  ];
+
+  // Small fixed rotations — alternating +/- so tiles feel scattered but not random on re-render
+  const tileRotations = [-2, 1.5, -1, 2.5, -1.5, 1, -2.5, 2];
 
   return (
     <section id="skills" className="pattern-waves py-20">
@@ -62,7 +75,7 @@ const Skills = () => {
           4+ YEARS OF CRAFT
         </span>
 
-        <h2 className="font-headline font-extrabold text-5xl md:text-7xl text-on-surface tracking-tight leading-tight mb-6">
+        <h2 className="font-headline font-extrabold text-4xl md:text-7xl text-on-surface tracking-tight leading-tight mb-6">
           Technical <span className="heading-accent">Mastery</span> &<br />Creative Intuition.
         </h2>
 
@@ -73,7 +86,7 @@ const Skills = () => {
         </p>
 
         {/* Toolbelt grid — even 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 
           <div className="card-surface-low p-8 rounded-xl hover-lift transition-all duration-500 relative overflow-hidden group">
             <div className="dog-ear bg-primary text-primary" aria-hidden="true"></div>
@@ -101,7 +114,7 @@ const Skills = () => {
         </div>
 
         {/* Accessibility & Agile — 2 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
           <div className="card-surface-low p-8 rounded-xl hover-lift transition-all duration-500 relative overflow-hidden group">
             <div className="dog-ear bg-primary text-primary" aria-hidden="true"></div>
@@ -120,19 +133,52 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Creative skills — full-width card */}
-        <div className="card-surface-warm p-8 rounded-xl hover-lift transition-all duration-500 relative overflow-hidden group">
+        {/* Creative skills — full-width card, split into hobbies + pro creative */}
+        <div className="card-surface-warm p-8 rounded-xl relative overflow-hidden group">
           <div className="dog-ear bg-tertiary text-tertiary" aria-hidden="true"></div>
-          <h3 className="font-headline font-bold text-xl mb-6 relative z-10 text-center">Creative Skills</h3>
-          <div className="flex flex-wrap gap-3 justify-center relative z-10">
-            {creativePills.map(label => (
-              <span
-                key={label}
-                className="px-5 py-2 rounded-full bg-secondary-fixed-dim text-on-secondary-fixed font-label font-bold text-sm hover:scale-110 hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] cursor-default"
-              >
-                {label}
-              </span>
-            ))}
+
+          <h3 className="font-headline font-bold text-xl mb-8 relative z-10 text-center">Creative Skills</h3>
+
+          <div className="grid sm:grid-cols-2 gap-8 relative z-10">
+
+            {/* Left — pro creative */}
+            <div>
+              <p className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">
+                Professional Creative
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {creativePro.map(({ label, emoji }, i) => (
+                  <span
+                    key={label}
+                    style={{ transform: `rotate(${tileRotations[i]}deg)` }}
+                    className="inline-flex flex-col items-center gap-1 px-4 py-3 rounded-2xl bg-white/70 shadow-sm text-on-surface font-label font-bold text-sm cursor-default hover:scale-110 hover:rotate-1 hover:shadow-md hover:bg-white transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                  >
+                    <span className="text-2xl leading-none" aria-hidden="true">{emoji}</span>
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — hobbies */}
+            <div>
+              <p className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">
+                Hobbies &amp; Side Projects
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {creativeHobbies.map(({ label, emoji }, i) => (
+                  <span
+                    key={label}
+                    style={{ transform: `rotate(${tileRotations[i + creativePro.length]}deg)` }}
+                    className="inline-flex flex-col items-center gap-1 px-4 py-3 rounded-2xl bg-white/70 shadow-sm text-on-surface font-label font-bold text-sm cursor-default hover:scale-110 hover:-rotate-1 hover:shadow-md hover:bg-white transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                  >
+                    <span className="text-2xl leading-none" aria-hidden="true">{emoji}</span>
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
