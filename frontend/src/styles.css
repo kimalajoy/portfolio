@@ -19,11 +19,20 @@
    ───────────────────────────────────────── */
 
 /* Home – tiny 5-point star tile */
-body,
-.pattern-stars {
+body {
   background-color: #f8faf5;
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12.5l.8 2.6 2.7.1-2.1 1.7.8 2.6-2.2-1.6-2.2 1.6.8-2.6-2.1-1.7 2.7-.1.8-2.6z' fill='%2394a3b8' fill-opacity='0.5'/%3E%3C/svg%3E");
   background-size: 40px 40px;
+}
+
+/* Home gets its own soft lavender→pink wash under the star tile,
+   echoing the secondary/tertiary tokens used elsewhere in the page. */
+.pattern-stars {
+  background-color: #f8faf5;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12.5l.8 2.6 2.7.1-2.1 1.7.8 2.6-2.2-1.6-2.2 1.6.8-2.6-2.1-1.7 2.7-.1.8-2.6z' fill='%2394a3b8' fill-opacity='0.5'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #f3edff 0%, #fdeef5 100%);
+  background-size: 40px 40px, 100% 100%;
 }
 
 /* Projects – diagonal mesh grid in soft peach (SVG) */
@@ -40,11 +49,14 @@ body,
   background-size: 100px 20px;
 }
 
-/* About – minimal X mark tile (SVG) */
+/* About – minimal X mark tile (SVG), with a soft peach→mint wash
+   underneath, echoing the card-surface-warm tone used in Skills. */
 .pattern-x {
   background-color: #f8faf5;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 6l8 8M14 6l-8 8' stroke='%2394a3b8' stroke-width='1' stroke-opacity='0.35' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 20px 20px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 6l8 8M14 6l-8 8' stroke='%2394a3b8' stroke-width='1' stroke-opacity='0.35' stroke-linecap='round'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #fff1e8 0%, #eafaf0 100%);
+  background-size: 20px 20px, 100% 100%;
 }
 
 /* Contact – peach star tile */
