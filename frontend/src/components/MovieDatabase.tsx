@@ -42,7 +42,7 @@ const MovieDatabase = () => {
       const data = await response.json();
 
       if (data.results) {
-        const moviesWithDates = data.results.filter((movie: any) => movie.release_date && movie.release_date.trim() !== '');
+        const moviesWithDates = data.results.filter((movie: Movie) => movie.release_date && movie.release_date.trim() !== '');
         if (isForSuggestions) {
           setSuggestions(moviesWithDates.slice(0, 5));
           setShowSuggestions(true);

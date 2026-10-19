@@ -52,12 +52,13 @@ const Contact = () => {
       setResponseMessage("Thank you for your message! I'll get back to you soon. ✨");
       setForm({ name: '', email: '', message: '', website: '' });
       setLastSubmission(Date.now());
-    } catch (error: any) {
+    } catch (error) {
       setStatus('error');
-      if (error.status === 404) {
+      const pbError = error as { status?: number; data?: { message?: string } };
+      if (pbError.status === 404) {
         setResponseMessage('Please wait while the backend is being set up. Try again in a moment!');
-      } else if (error.data?.message) {
-        setResponseMessage(error.data.message);
+      } else if (pbError.data?.message) {
+        setResponseMessage(pbError.data.message);
       } else {
         setResponseMessage('Failed to send message. Please try again or reach out directly via the email link below.');
       }

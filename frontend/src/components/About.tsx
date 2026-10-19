@@ -2,7 +2,7 @@ const About = () => {
   const stats = [
     { value: '5+',  label: 'Years Coding',      cls: 'bg-primary-container',   text: 'text-on-primary-container' },
     { value: '50+', label: 'Knitting Projects', cls: 'bg-secondary-container', text: 'text-on-secondary-container' },
-    { value: '~10', label: 'Loaves Baked',       cls: 'bg-tertiary-container',  text: 'text-on-tertiary-container' },
+    { value: '~20', label: 'Loaves Baked',       cls: 'bg-tertiary-container',  text: 'text-on-tertiary-container' },
     { value: '∞',   label: 'Cups of Tea',        cls: 'bg-surface-container',   text: 'text-on-surface' },
   ];
 
@@ -41,8 +41,17 @@ const About = () => {
             <div className="personality-card-accent group p-6">
               <div className="dog-ear bg-tertiary text-tertiary"></div>
               <p className="font-body text-on-surface-variant leading-relaxed relative z-10">
-                When I'm not crafting code, I'm crafting with my hands! Whether knitting intricate patterns, building combat robots,
-                or learning the art of sourdough baking, I love projects that require patience, precision, and creative thinking.
+                When I'm not crafting code, I'm crafting with my hands! Whether{' '}
+                <a
+                  href="https://www.ravelry.com/projects/kimalajoy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-on-primary-fixed-variant transition-colors"
+                  aria-label="Knitting intricate patterns — view projects on Ravelry (opens in new tab)"
+                >
+                  knitting intricate patterns
+                </a>
+                , building combat robots, or learning the art of sourdough baking, I love projects that require patience, precision, and creative thinking.
               </p>
             </div>
             <div className="personality-card-accent group p-6">
@@ -81,7 +90,6 @@ const About = () => {
             <div className="grid grid-cols-2 gap-3">
               {stats.map(({ value, label, cls, text }) => (
                 <div key={label} className={`${cls} rounded-xl p-4 text-center relative overflow-hidden hover-lift transition-all duration-500`}>
-                  <div className="dog-ear bg-white/20 text-white/20"></div>
                   <div className={`font-headline font-extrabold text-2xl ${text} mb-0.5`}>{value}</div>
                   <div className={`font-label text-xs font-semibold ${text} opacity-80`}>{label}</div>
                 </div>

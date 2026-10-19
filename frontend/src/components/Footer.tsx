@@ -3,7 +3,6 @@ const Footer = () => {
 
   return (
     <footer className="w-full py-12 px-8 rounded-t-[3rem] bg-white/60 backdrop-blur-sm mt-8 relative overflow-hidden">
-      <div className="dog-ear bg-secondary" style={{ opacity: 0.1 }} aria-hidden="true"></div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
         <div className="font-headline font-black text-slate-900 text-xl tracking-tight">
